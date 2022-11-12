@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  backend:
+    image: shopizerecomm/shopizer@sha256:cf1adcd41b636ed73d8015d7d98e656840f7e105d856962cdb952ed7c12d4532
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+  admin:
+    image: shopizerecomm/shopizer-shop-reactjs@sha256:739170431383723c059b92866018e63fe1e857fff52b6dd7ba0e6c2a767602a8
+    restart: unless-stopped
+    environment:
+      - APP_BASE_URL=http://localhost:8080/api
+    ports:
+      - 82:80
+  frontend:
+    image: shopizerecomm/shopizer-shop-reactjs@sha256:57fe63347b738bc3be3b0539d8d6498d424f52591d291b88b8ccc09f35cc734e
+    restart: unless-stopped
+    environment:
+      - APP_MERCHANT=DEFAULT
+      - APP_BASE_URL=http://localhost:8080/api
+    ports:
+      - 80:80
