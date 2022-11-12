@@ -11,7 +11,7 @@ yarn
 npm install
 ```
 
-Run the performace test:
+Run the performance test:
 ```sh
 node index.js
 ```
