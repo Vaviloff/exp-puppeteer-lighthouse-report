@@ -1,15 +1,24 @@
 ## Simple Lighthouse web-site performance test
 
-Usage:
-
+Start the test site in docker conatiners and wait a couple minutes for the script to seed the database:
+```
+docker-compose up -d
+```
+Install dependencies:
 ```sh
-yarn install
+yarn
+# or
+npm install
+```
 
+Run the performace test:
+```sh
 node index.js
 ```
 
-The report will be generated in the working folder.
+The report `user-flow.report.html` will be generated in the folder.
 
-@TODO:
-* Add docker-compose for the test website
-
+Remove the test site deployment:
+```sh
+docker-compose down
+```
